@@ -1,0 +1,7 @@
+view event registrations:
+  title: 'View event registrations'
+  description: 'View event registration submissions'
+
+administer event registrations:
+  title: 'Administer event registrations'
+  description: 'Manage, export, and administer event registrations'

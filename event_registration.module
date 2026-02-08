@@ -1,0 +1,21 @@
+<?php
+
+function event_registration_mail($key, &$message, $params) {
+  switch ($key) {
+
+    case 'user_confirmation':
+      $message['subject'] = 'Event Registration Confirmation';
+      $message['body'][] = "You have successfully registered.";
+      $message['body'][] = "Event: {$params['event_name']}";
+      $message['body'][] = "Date: {$params['event_date']}";
+      $message['body'][] = "Category: {$params['category']}";
+      break;
+
+    case 'admin_notification':
+      $message['subject'] = 'New Event Registration';
+      $message['body'][] = "New registration received.";
+      $message['body'][] = "Email: {$params['email']}";
+      $message['body'][] = "Event: {$params['event_name']}";
+      break;
+  }
+}

@@ -1,0 +1,102 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function event_registration_schema() {
+
+  $schema['event_registration_event'] = [
+    'description' => 'Stores event configuration data.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'registration_start' => [
+        'type' => 'varchar',
+        'length' => 20,
+        'not null' => TRUE,
+      ],
+      'registration_end' => [
+        'type' => 'varchar',
+        'length' => 20,
+        'not null' => TRUE,
+      ],
+      'event_date' => [
+        'type' => 'varchar',
+        'length' => 20,
+        'not null' => TRUE,
+      ],
+      'event_name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'category' => [
+        'type' => 'varchar',
+        'length' => 100,
+        'not null' => TRUE,
+      ],
+      'created' => [
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'event_date' => ['event_date'],
+      'category' => ['category'],
+    ],
+  ];
+
+  $schema['event_registration_entries'] = [
+    'description' => 'Stores user event registrations.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'event_id' => [
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'event_date' => [
+        'type' => 'varchar',
+        'length' => 20,
+        'not null' => TRUE,
+      ],
+      'full_name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'email' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'college' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'department' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'created' => [
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'event_id' => ['event_id'],
+      'email' => ['email'],
+      'event_date' => ['event_date'],
+    ],
+  ];
+
+  return $schema;
+}
