@@ -133,3 +133,18 @@ The module defines custom permissions to control access:
   - Custom database tables
 - No contributed modules were used.
 
+## Troubleshooting
+
+- If routes do not appear after enabling the module, clear cache:
+  ```bash
+  drush cr
+  
+## Future Improvements
+
+The following enhancements can be considered in future iterations of this module:
+
+- Integration with Drupal entities instead of custom tables for better extensibility.
+- Email notifications to users and administrators upon successful registration.
+- Support for multiple events with capacity limits.
+- CSV export filtering by event or date range.
+- Role-based access control for different admin actions.
